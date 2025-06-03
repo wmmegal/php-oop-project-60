@@ -1,13 +1,13 @@
 <?php
 
-namespace Validator\Rules;
+namespace Validator\Rules\String;
 
-use Validator\Schemas\StringSchema;
+use Validator\Rules\RuleInterface;
 
-class MinLengthStringRule implements StringRuleInterface
+readonly class MinLengthRule implements RuleInterface
 {
     public function __construct(
-        private readonly int $value = 0
+        private int $value = 0
     ) {
     }
 

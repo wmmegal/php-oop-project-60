@@ -1,13 +1,14 @@
 <?php
 
-namespace Validator\Rules;
+namespace Validator\Rules\String;
 
-use Validator\Schemas\StringSchema;
+use Validator\Rules\RuleInterface;
 
-readonly class ContainsStringRule implements StringRuleInterface
+readonly class ContainsRule implements RuleInterface
 {
-    public function __construct(private string $value = '')
-    {
+    public function __construct(
+        private string $value = ''
+    ) {
     }
 
     public function getName(): string
