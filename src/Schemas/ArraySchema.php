@@ -3,9 +3,10 @@
 namespace Validator\Schemas;
 
 use Validator\Rules\Array\RequiredRule;
+use Validator\Rules\Array\ShapeRule;
 use Validator\Rules\Array\SizeOfRule;
 
-class ArraySchema
+class ArraySchema implements SchemaInterface
 {
     use SchemaTrait;
 
@@ -19,6 +20,13 @@ class ArraySchema
     public function sizeof(int $size): static
     {
         $this->addRule(new SizeOfRule($size));
+
+        return $this;
+    }
+
+    public function shape(array $rules): static
+    {
+        $this->addRule(new ShapeRule($rules));
 
         return $this;
     }

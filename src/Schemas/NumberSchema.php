@@ -6,7 +6,7 @@ use Validator\Rules\Number\PositiveRule;
 use Validator\Rules\Number\RangeRule;
 use Validator\Rules\Number\RequiredRule;
 
-class NumberSchema
+class NumberSchema implements SchemaInterface
 {
     use SchemaTrait;
 

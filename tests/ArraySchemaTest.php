@@ -51,4 +51,17 @@ class ArraySchemaTest extends TestCase
         $this->assertTrue($this->schema->isValid([1, 2, 3]));
         $this->assertTrue($this->schema->isValid([1, 2, 3, 4]));
     }
+
+    public function testShape()
+    {
+        $this->schema->shape([
+            'name' => $this->v->string()->required(),
+            'age' => $this->v->number()->positive()
+        ]);
+
+        $this->assertTrue($this->schema->isValid(['name' => 'John', 'age' => 25]));
+        $this->assertFalse($this->schema->isValid(['age' => 25]));
+        $this->assertFalse($this->schema->isValid(['name' => 'John', 'age' => -5]));
+        $this->assertTrue($this->schema->isValid(['name' => 'John', 'age' => 25, 'email' => 'john@example.com']));
+    }
 }

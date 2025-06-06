@@ -6,7 +6,7 @@ use Validator\Rules\String\ContainsRule;
 use Validator\Rules\String\MinLengthRule;
 use Validator\Rules\String\RequiredRule;
 
-class StringSchema
+class StringSchema implements SchemaInterface
 {
     use SchemaTrait;
 
